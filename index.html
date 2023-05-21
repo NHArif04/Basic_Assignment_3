@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        #table-container {
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiplication Table</h1>
+    <label for="num-input">Enter a number:</label>
+    <input type="number" id="num-input" min="1" max="10" value="4" />
+    <button onclick="generateTable()">Generate Table</button>
+    <button onclick="clearTable()">Clear Table</button>
+    <div id="table-container"></div>
+    <script>
+        function generateTable() {
+            var num = document.getElementById("num-input").value;
+            var tableHtml = "<table>";
+            tableHtml += "<tr><th>" + num + " times table</th></tr>";
+            for (var i = 1; i <= 10; i++) {
+                var product = num * i;
+                tableHtml +=
+                    "<tr><td>" + num + " x " + i + "</td><td>" + product + "</td></tr>";
+            }
+            tableHtml += "</table>";
+            document.getElementById("table-container").innerHTML = tableHtml;
+        }
+
+        function clearTable() {
+            document.getElementById("num-input").value = "4";
+            document.getElementById("table-container").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
